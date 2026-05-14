@@ -900,12 +900,12 @@ function renderList(list, containerId) {
     const priceLabel = c.price !== 6 ? ` <span class="item-price-tag">${fmt(c.price)}</span>` : '';
     const limitedTag = c.limited ? ' <span class="item-limited">Édition limitée</span>' : '';
     container.innerHTML += `
-      <div class="menu-item">
-        <div class="item-info">
-          <span class="item-name">${c.name}${priceLabel}${limitedTag}</span>
-          <span class="item-desc">${c.desc}</span>
+      <div class="menu-item" style="display:flex;flex-direction:row;align-items:flex-start;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #f0e8d8;text-align:left;">
+        <div class="item-info" style="flex:1;min-width:0;text-align:left;">
+          <span class="item-name" style="display:block;text-align:left;font-family:'Playfair Display',serif;font-weight:700;font-size:14px;color:#000A89;line-height:1.3;margin-bottom:3px;">${c.name}${priceLabel}${limitedTag}</span>
+          <span class="item-desc" style="display:block;text-align:left;font-size:11px;color:#999;font-weight:300;line-height:1.4;">${c.desc}</span>
         </div>
-        <div class="qty-control">
+        <div class="qty-control" style="display:flex;align-items:center;gap:8px;flex-shrink:0;padding-top:2px;">
           <button class="qty-btn" onclick="changeQty('${c.id}', -1)">−</button>
           <span class="qty-num" id="qty-${c.id}">0</span>
           <button class="qty-btn" onclick="changeQty('${c.id}', +1)">+</button>
